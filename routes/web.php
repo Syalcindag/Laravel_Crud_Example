@@ -16,3 +16,10 @@ Route::get('/', function () {
 });
 
 Route::resource('okul','OkulController');
+
+   /*
+    *   GET <url>/okul //points to index() method on UserController
+    *   GET <url>/okul/create //points to create() method on UserController
+    *   POST <url>/okul //points to store() method on UserController
+    *   POST <url>/okul/{userid}/edit //points to edit(userId) method on UserController
+    */

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Student;
 use App\Http\Controllers\Controller;
+use Request; // use Illuminate\Http\Request; bunun yerine kullanılmış komut
 
 class OkulController extends Controller
 {
@@ -15,7 +16,7 @@ class OkulController extends Controller
     */
    public function index()
    {
-      $okul = Student::paginate(3);
+      $okul = Student::paginate(3);  //Database veri alma kısmı
       return view('okul.index', compact('okul'));
    }
    /**
@@ -25,7 +26,7 @@ class OkulController extends Controller
     */
    public function create()
    {
-      //
+        return view('okul.create');
    }
    /**
     * Store a newly created resource in storage.
@@ -34,7 +35,9 @@ class OkulController extends Controller
     */
    public function store()
    {
-      //
+        $kayit=Request::all();
+        Student::create($kayit);
+        return redirect('okul'); //işlem bitince gidilecek adres "/okul"
    }
    /**
     * Display the specified resource.
@@ -50,31 +53,36 @@ class OkulController extends Controller
    /**
     * Show the form for editing the specified resource.
     *
-    * @param  int  $id
+    * @param  int  $no
     * @return Response
     */
-   public function edit($id)
+   public function edit($no)
    {
-      //
+        $student=Student::find($no);
+        return view('okul.edit',compact('student'));
    }
    /**
     * Update the specified resource in storage.
     *
-    * @param  int  $id
+    * @param  int  $no
     * @return Response
     */
-   public function update($id)
+   public function update($no)
    {
-      //
+        $studentUpdate=Request::all();
+        $student=Student::find($no);
+        $student->update($studentUpdate);
+        return redirect('okul');
    }
    /**
     * Remove the specified resource from storage.
     *
-    * @param  int  $id
+    * @param  int  $no
     * @return Response
     */
-   public function destroy($id)
+   public function destroy($no)
    {
-      //
+        Student::find($no)->delete();
+        return redirect('okul'); //İşlem sonucunda gönderilecek adres (/okul)
    }
 }

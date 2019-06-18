@@ -2,7 +2,7 @@
 
 @section('content')
  <h1>Okul Tablosu</h1>
- <a href="{{url('/books/create')}}" class="btn btn-success">Yeni Kayıt</a>
+ <a href="{{url('/okul/create')}}" class="btn btn-success">Yeni Kayıt</a>
  <hr>
  <table class="table table-striped table-bordered table-hover">
      <thead>
