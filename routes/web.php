@@ -23,3 +23,7 @@ Route::resource('okul','OkulController');
     *   POST <url>/okul //points to store() method on UserController
     *   POST <url>/okul/{userid}/edit //points to edit(userId) method on UserController
     */
+
+Auth::routes();
+
+Route::get('/home', 'OkulController@index');

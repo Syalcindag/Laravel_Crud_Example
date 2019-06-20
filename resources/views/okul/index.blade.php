@@ -4,7 +4,7 @@
  <h1>Okul Tablosu</h1>
  <a href="{{url('/okul/create')}}" class="btn btn-success">Yeni Kayıt</a>
  <hr>
- <table class="table table-striped table-bordered table-hover">
+ <table id="myTable" class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
          <th>No</th>
@@ -18,7 +18,7 @@
      <tbody>
      @foreach ($okul as $kayit)
          <tr>
-             <td>{{ $kayit->no }}</td>
+             <td onclick="alert('{{ $kayit->no }}')">{{ $kayit->no }}</td>  <!--bu kısımda inline js kullandım js dosyasıa taşımam gerekiyor -->
              <td>{{ $kayit->ad }}</td>
              <td>{{ $kayit->soyad }}</td>
 
