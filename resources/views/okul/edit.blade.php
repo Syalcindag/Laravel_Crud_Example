@@ -1,4 +1,4 @@
-@extends('layout.template')
+@extends('layouts.template')
 @section('content')
     <h1>Update Book</h1>
     {!! Form::model($student,['method' => 'PATCH','route'=>['okul.update',$student->no]]) !!}

@@ -1,4 +1,4 @@
-@extends('layout/template')
+@extends('layouts/template')
 
 @section('content')
  <h1>Okul Tablosu</h1>
@@ -38,3 +38,6 @@
  </table>
  <?php echo $okul->links(); ?>
 @endsection
+
+
+
